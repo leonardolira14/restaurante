@@ -1,0 +1,211 @@
+$fonts:(
+  Ranga: 'Ranga',
+  Source: 'Source Sans Pro',
+  Rubik: 'Rubik',
+  Lobster: 'Lobster',
+  FjallaOne: 'Fjalla One',
+  Roboto:'Roboto'
+  );
+$colors: (
+  menu:#293462,
+  rojiso:#a64942,
+  rojito:#fe5f55,
+  blanco:#fff,
+  azulprimary:#00204a,
+  primary:#005792,
+  azulcielo:#448ef6,
+  azuladmyo:    #005d8f,
+  succes: #00a65a,
+  orange:#f7ac43,
+  naranja:  #fdb44b,
+  danger:     #f53d3d,
+  dark:       #222,
+  gary-lte:  #d2d6de,
+  aqua: #00c0ef,
+  yellow: #f39c12,
+  blue: #0073b7,
+  navy: #001F3F,
+  teal: #39CCCC,
+  olive: #3D9970,
+  lime: #01FF70,
+  secondary: #FF851B,
+  fuchsia: #F012BE,
+  purple: #605ca8,
+  maroon: #D81B60,
+  blackk: #000,
+  dark-2: #222d32,
+  light-gray: #444,
+  alight-gray:#777
+);
+$gamagrises:(
+gris1:#f4f3f3,
+gris2:#dfdfdf,
+gris3:#393e46,
+girsmenu:#555,
+gris4:#eaeaea,
+gris5:#dae1e7
+  );
+$spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50,55,60,65,70, 75,80,85,90,95,100,110,120,130,140);
+$sides: (top, bottom, left, right);
+
+@each $space in $spaceamounts {
+  .p-#{$space} {
+    padding: #{$space}px !important;
+   }
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
+@each $profile, $font in $fonts {
+  .text-#{$profile}{
+    font-family: $font !important;
+  }
+}
+@each $profile, $bgcolor in $gamagrises {
+  .text-#{$profile}{
+    color: $bgcolor !important;
+  }
+  .bg-#{$profile}{
+    background:$bgcolor  !important;
+    border-color:$bgcolor !important;
+    color:map-get( $colors, blanco);
+    
+  }
+}
+@each $profile, $bgcolor in $colors {
+  .bg-#{$profile}{
+    background:$bgcolor  !important;
+    border-color:$bgcolor !important;
+    color:map-get( $colors, blanco);
+  }
+  .text-#{$profile}{
+    color:$bgcolor !important;
+  }
+  .btn-outline-#{$profile}{
+    color:$bgcolor;
+    background: transparent !important;
+    border-color: $bgcolor !important;
+    border-radius: 0px !important;
+    transition: all 0.5s;
+    &:hover{
+       color:map-get($colors,blanco);
+      transition: all 0.5s;
+    background:rbga($bgcolor,1)!important ;
+      border-color: $bgcolor !important;
+    }
+  }
+}
+.width-100{
+  width: 100%;
+} 
+.height-100{
+  height: 100vh;
+}
+.btn{
+border-radius:0px !important ;
+}
+.centrar_horizontal{
+  margin:0 auto;
+}
+.cont-menu{
+  & .list-group{
+    display: flex;
+    width: 100%;
+    & .list-group-item{
+       width: 100%;
+       font-size: 1.4rem;
+       text-transform: uppercase;
+       font-family: map-get($fonts,Ranga);
+       color:map-get( $colors, blanco) !important;;
+       background-color:transparent !important;
+       border-color: transparent !important;
+       border-left: 6px  solid   map-get($colors, orange);
+       &:hover{
+        border-left: 6px solid map-get($colors, succes) !important;
+        cursor: pointer;
+       };
+       &.active{
+        border-left: 6px solid map-get($colors, succes) !important;
+       }
+    }
+  }
+}
+.card-img-top{
+  max-height: 200px;
+}
+.cont-principal{
+  overflow: auto;
+}
+.titulo-pricipal{
+  font-size: 6rem;
+}
+.subtitulo-pricipal{
+  font-size: 4rem;
+}
+.lista_mesasocupadas{
+  & li.list-group-item{
+    &.active{
+      color:#fff;
+      background-color: map-get($colors,primary);
+    }
+    &:hover{
+      color:#fff;
+      cursor: pointer;
+      background-color: map-get($colors,primary);
+    }
+  }
+}
+.modal-cont{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,.5);
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  & .modal-window{
+    padding: 0 !important;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: #fff;
+    & .listmesas{
+      & .col-3{
+        & .card{
+          &.active{
+             background-color: map-get($colors,primary);
+             & p{
+                  color:#fff;
+               }
+          }
+          & .mesa{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            & p{
+                  margin-bottom: 0rem;
+            }
+            
+          }
+
+          &:hover{
+               background-color: map-get($colors,primary);
+               cursor: pointer;
+               transition: all 0.6s;
+               & p{
+                  color:#fff;
+               }
+          }
+        }
+      }
+    }
+    
+  }
+}
