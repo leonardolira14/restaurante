@@ -270,7 +270,7 @@
 		ventatotal["Total"]=$("#text_total").val();
 		ventatotal["Usuario"]=1;
 		var datos={datos:ventatotal};
-		help.senddata("http://localhost/restaurante/admin/addventa/",datos,function(data){
+		help.senddata("https://agenciapegasus.com.mx/restaurante/admin/addventa/",datos,function(data){
 			ventas.forEach((mesas,index)=>{
 				if(mesas.Mesa===parseInt(mesa)){
 					
