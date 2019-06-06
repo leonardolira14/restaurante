@@ -97,17 +97,17 @@
 			</div>
 
 <div class="modal-cont d-none" id="window_venta" >
-	<div class="col-5 modal-window">
+	<div class="col-12  col-md-5 col-xl-5 col-lg-5 m-t-20 modal-window">
 		<div class="card">
 			<div class="card-header bg-primary">
 				Abrir Venta
 			</div>
 		  <div class="card-body container listmesas">
-		    	<div class="row">
+		    	<div class="row overflow-auto">
 		    		<?
 		    		foreach ($mesas as $mesa) {
 		    			?>
-						<div class="col-3 m-t-20">
+						<div class="col-4 m-t-20">
 			    			<div class="card" id="<?=$mesa['Numero']?>" onclick="abrir_venta(<?=$mesa["Numero"]?>)">
 			    				<div class="card-body">
 			    					<div class="mesa">
