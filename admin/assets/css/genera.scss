@@ -181,6 +181,7 @@ border-radius:0px !important ;
   z-index: 1000;
   top: 0;
   left: 0;
+  overflow: auto;
   & .modal-window{
     padding: 0 !important;
     position: absolute;
